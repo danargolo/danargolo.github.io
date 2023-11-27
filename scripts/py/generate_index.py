@@ -1,7 +1,7 @@
 import os
 import re
 
-from scripts.py.format_html_page import format_header
+from format_html_page import format_header
 
 
 posts_folder = './posts'

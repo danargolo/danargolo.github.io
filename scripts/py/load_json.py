@@ -2,7 +2,7 @@
 
 import json
 import markdown
-from scripts.py.generate_post_page import generate_post_page
+from generate_post_page import generate_post_page
 
 
 def load_json():

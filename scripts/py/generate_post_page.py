@@ -1,8 +1,8 @@
 import os
 import re
 
-from scripts.py.generate_index import generate_index
-from scripts.py.format_html_page import format_header
+from generate_index import generate_index
+from format_html_page import format_header
 
 from datetime import datetime
 
