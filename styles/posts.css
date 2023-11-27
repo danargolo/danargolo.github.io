@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  width: 60%;
+  background-color: #ecf2f8;
+}
+
+.title {
+  display: none;
+}
