@@ -3,6 +3,7 @@ name: Python Generate Pages
 on:
   push:
     branches: ["main"]
+    paths: ['**.json','**.md']
 
 permissions:
   contents: write
