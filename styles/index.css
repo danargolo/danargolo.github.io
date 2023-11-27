@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  background-color: #ecf2f8;
+}
+
+.title {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+  margin: 25px 5px;
+}
+
+#title {
+  margin: 0;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+#subtitle {
+  display:flex;
+  justify-content: center;
+  font-size: 18px;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  padding: 1px 5px;
+  width: 80%;
+  border: 2px solid #a9c8e4;
+  box-shadow: 0 1px 10px rgba(0,0,0,0.4), 0 0 30px rgba(10,10,0,0.1) inset;
+
+}
+
+.posts > .post {
+  border: 2px solid red;
+  grid-column: span 2; /* Ocupa duas colunas */
+  grid-row: span 1; /* Ocupa uma linha */
+}
+
+.posts > .post ~ .post{
+  border: none;
+  grid-column: span 2; /* Ocupa duas colunas */
+  grid-row: span 1; /* Ocupa uma linha */
+}
+
+article {
+  /* width: 300px; */
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.post * {
+  padding: 10px;
+
+}
+
+.post_title {
+  font-size: 27px;
+}
+
+
+
+
