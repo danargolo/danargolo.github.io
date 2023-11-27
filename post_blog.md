@@ -6,11 +6,13 @@
 
 O objetivo principal do projeto "BlogAssembler" é criar uma plataforma de blogs simplificada, na qual os usuários podem adicionar facilmente novas postagens ao blog apenas alterando um arquivo Markdown.
 
-
+**Tecnologias utilizadas**
 -Python
 -HTML
 -CSS
 -GitHub Actions
+
+
 
 </article>
 
