@@ -4,6 +4,10 @@
   background-color: #ecf2f8;
 }
 
+.post {
+  margin-bottom: 100px
+}
+
 .title {
   display: none;
 }

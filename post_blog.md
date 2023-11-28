@@ -70,7 +70,7 @@ with open('index.html', 'w') as output_file:
         )
     )
 ```
-
+autores:
 <author>Breno, Christopher, Danilo, Isaac, Victor </author>
 
 
