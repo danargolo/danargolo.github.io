@@ -35,17 +35,6 @@
 
 }
 
-/* .posts > .post {
-  grid-column: span 2; /* Ocupa duas colunas */
-  grid-row: span 1; /* Ocupa uma linha */
-}
-
-.posts > .post ~ .post{
-  border: none;
-  grid-column: span 2; /* Ocupa duas colunas */
-  grid-row: span 1; /* Ocupa uma linha */
-} */
-
 article {
   border: 1px solid #ccc;
   padding: 10px;
