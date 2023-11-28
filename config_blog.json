@@ -1,12 +1,12 @@
 {
-  "logo": " ",
-  "title":"Nome do Blog",
-  "description": "Um texto qualquer",
+  "logo": "",
+  "title":"Meu Blog",
+  "description": "Um blog automatizado para expressar as inquietudes da mente.",
   "author": "Danilo Argolo",
   "occupation": "Front-End Developer",
   "links": {
     "github": "https://www.github.com/danargolo",
     "linkedin": "https://www.linkedin.com/in/danargolo"
   },
-  "message_footer": "Desenvolvido por "
+  "message_footer": "Desenvolvido por DanArgolo.Dev"
 }
