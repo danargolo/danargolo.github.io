@@ -6,12 +6,14 @@ Para realizarmos tudo isso, faremos a instalação do Git Flow para configuraç�
 No Github usaremos o Actions para automatizar a cada *push* a atualização da nossa página hospedada no Git Pages.
 
 ### Instalação e Execução do Git Flow:
+
 ```
 sudo apt-get install git-flow
 git flow init
 ```
 
 ### Foi criado uma nova branch para desenvolvimento do projeto:
+
 ```bash
 git branch -l
 * develop
@@ -21,12 +23,14 @@ git checkout develop
 ```
 
 ### Arquivos utilizados:
+
 - **Markdown:** wiki.md (conteúdo escrito em md);
 - **JSON:** config.json (título, descrição e autores);
 - **HTML:** layout.html (template) e index.html (escrito a partir do script.py);
 - **Python:** script.py (responsável em escrever nosso index.html a partir dos outros arquivos).
 
 ### Criação de um Ambiente Virtual:
+
 **Para isolarmos as dependências do projeto de modo que cada projeto tenha suas bibliotecas separadas do sistema principal, criamos um ambiente virtual:**
 
 ```python
@@ -44,6 +48,7 @@ pip install markdown2
 ```
 
 ### Script em Python:
+
 ```python
 from markdown2 import markdown 
 from json import load
