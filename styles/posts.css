@@ -8,6 +8,10 @@
   margin-bottom: 100px
 }
 
+.post > * {
+  margin: 25px;
+}
+
 .title {
   display: none;
 }
