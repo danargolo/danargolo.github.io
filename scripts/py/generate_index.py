@@ -18,7 +18,7 @@ def generate_post_link(file_path):
 
     match_title = re.search(r'<h1>(.*?)<\/h1>', file_content)
     match_content = re.search(r'<p>(.*?)<\/p>', file_content, re.DOTALL)
-    match_author = re.search(r'<h5>(.*?)<\/h5>', file_content)
+    match_author = re.search(r'<author>(.*?)<\/author>', file_content)
 
     post_title = match_title.group(1) if match_title else 'No Title'
     post_content = match_content.group(1) if match_content else 'No Content'
