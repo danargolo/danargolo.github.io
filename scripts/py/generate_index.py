@@ -36,7 +36,7 @@ def generate_index():
     posts_contents = ''
     posts_folder = os.listdir('./posts')
 
-    if not posts_folder:
+    if not os.path.isdir(posts_folder[0]):
         with open('./index.html', 'w', encoding='utf-8') as index_file:
             index_file.write(
                 format_header( 
