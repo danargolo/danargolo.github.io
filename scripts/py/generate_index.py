@@ -34,27 +34,35 @@ def generate_post_link(file_path):
 
 def generate_index():
     posts_contents = ''
-
-    for year in os.listdir(posts_folder):
-        folder_year = os.path.join(posts_folder, year)
-
-        for month in os.listdir(folder_year):
-            folder_month = os.path.join(folder_year, month)
-
-            for post_file in reversed(sorted(os.listdir(folder_month))):
-                if post_file.endswith('.html'):
-                    post_path = os.path.join(folder_month, post_file)
-                    posts = generate_post_link(post_path)
-                    posts_contents += posts
-        
-    with open('./index.html', 'w', encoding='utf-8') as index_file:
-        index_file.write(
-            format_header( 
-                posts_contents,
+    if not os.listdir(posts_folder):
+        with open('./index.html', 'w', encoding='utf-8') as index_file:
+            index_file.write(
+                format_header( 
+                "No content posted.",
                 styles
+                )
             )
-        )
+    else: 
+        for year in os.listdir(posts_folder):
+            folder_year = os.path.join(posts_folder, year)
 
+            for month in os.listdir(folder_year):
+                folder_month = os.path.join(folder_year, month)
+
+                for post_file in reversed(sorted(os.listdir(folder_month))):
+                    if post_file.endswith('.html'):
+                        post_path = os.path.join(folder_month, post_file)
+                        posts = generate_post_link(post_path)
+                        posts_contents += posts
+            
+        with open('./index.html', 'w', encoding='utf-8') as index_file:
+            index_file.write(
+                format_header( 
+                    posts_contents,
+                    styles
+                )
+            )
+            
     print('Index created.')
 
 generate_index()
