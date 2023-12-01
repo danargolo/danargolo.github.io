@@ -3,7 +3,7 @@ import re
 
 from format_html_page import format_header
 
-posts_folder = './posts'
+# posts_folder = './posts'
 template_index_path = './templates/index.html'
 
 styles = {
@@ -34,7 +34,9 @@ def generate_post_link(file_path):
 
 def generate_index():
     posts_contents = ''
-    if not os.listdir(posts_folder):
+    posts_folder = os.listdir('./posts')
+
+    if not posts_folder:
         with open('./index.html', 'w', encoding='utf-8') as index_file:
             index_file.write(
                 format_header( 
@@ -42,6 +44,7 @@ def generate_index():
                 styles
                 )
             )
+            print('vazio')
     else: 
         for year in os.listdir(posts_folder):
             folder_year = os.path.join(posts_folder, year)
@@ -62,6 +65,7 @@ def generate_index():
                     styles
                 )
             )
+            print('pasta')
             
     print('Index created.')
 
