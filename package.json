@@ -4,14 +4,14 @@
   "description": "Descrição do seu projeto",
   "main": "index.js",
   "scripts": {
-    "deploy": "npm run git-pull && npm run git-commit-push",
-    "load-json": "./scripts/py/load_json.py",
+    "deploy": "npm run format && npm run git-pull && npm run git-commit-push",
     "git-pull": "git pull origin main",
-    "git-commit-push": "git commit -am 'Post Deploy' && git push -u origin main"
-  },
-  "dependencies": {
-    "eslint": "8.39.0"
+    "git-commit-push": "git commit -am 'Post Deploy' && git push -u origin main",
+    "format": "prettier --write \"**/*.html\""
   },
   "author": "Danilo Argolo",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "3.1.0"
+  }
 }
