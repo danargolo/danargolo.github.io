@@ -1,9 +1,7 @@
 import os
 import re
 
-from format_html_page_copy import format_header
-from time_execution import time_exec
-
+from format_html_page import format_header
 
 posts_folder = './posts'
 template_index_path = './templates/index.html'
@@ -58,6 +56,5 @@ def generate_index():
         )
 
     print('Index created.')
-    time_exec()
 
 generate_index()

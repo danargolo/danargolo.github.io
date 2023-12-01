@@ -1,8 +1,7 @@
 import os
 
 from load_md import load_md
-from format_html_page_copy import format_header 
-from generate_index import generate_index
+from scripts.py.format_html_page import format_header 
 
 from datetime import datetime
 

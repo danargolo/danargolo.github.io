@@ -1,5 +1,8 @@
+from load_json import load_json
 
-def format_header(config, content, style):
+def format_header(md, styles):
+  config = load_json()
+
   return(
     f"""<!DOCTYPE html>
 <html lang="en">
@@ -9,7 +12,7 @@ def format_header(config, content, style):
   <title>{config['title']}</title>
   <script src=""></script>
   <link rel="stylesheet" href="/styles/global.css">
-  <link rel="stylesheet" href="/styles/{style['page']}.css">
+  <link rel="stylesheet" href="/styles/{styles['page']}.css">
 </head>
 <body>
   <header>
@@ -21,12 +24,12 @@ def format_header(config, content, style):
   </header>
   <main>
     <div class="container">
-      <section class={style['class']}>
+      <section class={styles['class']}>
         <div class="title">
           <p id="title">{config['title']}</p>
           <p id="subtitle">{config['description']}</p>
         </div>
-        {content}
+        { md }
       </section>
       <aside style="display: flex; justify-content: right;">
         <img style="border: 2px solid rgb(233, 234, 240);" src="" alt="">
