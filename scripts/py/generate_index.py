@@ -1,10 +1,7 @@
 import os
 import re
 
-from format_html_page import format_header
-
-# posts_folder = './posts'
-template_index_path = './templates/index.html'
+from format_html_page import write_html
 
 styles = {
     "page": 'index',
@@ -32,41 +29,35 @@ def generate_post_link(file_path):
       </article>
       """)
 
-def generate_index():
+def is_folder_empty(folder_path):
+    return not os.listdir(folder_path)
+
+def get_posts_contents(posts_folder):
     posts_contents = ''
-    posts_folder = os.listdir('./posts')
+    
+    for year in os.listdir(posts_folder):
+        folder_year = os.path.join(posts_folder, year)
 
-    if not os.path.isdir(posts_folder[0]):
-        with open('./index.html', 'w', encoding='utf-8') as index_file:
-            index_file.write(
-                format_header( 
-                "No content posted.",
-                styles
-                )
-            )
-            print('vazio')
-    else: 
-        for year in os.listdir(posts_folder):
-            folder_year = os.path.join(posts_folder, year)
+        for month in os.listdir(folder_year):
+            folder_month = os.path.join(folder_year, month)
 
-            for month in os.listdir(folder_year):
-                folder_month = os.path.join(folder_year, month)
+            for post_file in reversed(sorted(os.listdir(folder_month))):
+                if post_file.endswith('.html'):
+                    post_path = os.path.join(folder_month, post_file)
+                    posts_contents += generate_post_link(post_path)
+                    
+    return posts_contents
+    
 
-                for post_file in reversed(sorted(os.listdir(folder_month))):
-                    if post_file.endswith('.html'):
-                        post_path = os.path.join(folder_month, post_file)
-                        posts = generate_post_link(post_path)
-                        posts_contents += posts
-            
-        with open('./index.html', 'w', encoding='utf-8') as index_file:
-            index_file.write(
-                format_header( 
-                    posts_contents,
-                    styles
-                )
-            )
-            print('pasta')
-            
+def generate_index():
+    posts_folder = './posts'
+    posts_contents = get_posts_contents(posts_folder)
+
+    if not posts_contents:
+        posts_contents = 'No content posted.'
+
+    write_html('./index.html', posts_contents, styles)
+
     print('Index created.')
 
 generate_index()

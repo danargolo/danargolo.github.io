@@ -1,6 +1,15 @@
 from load_json import load_json
 
-def format_header(md, styles):
+def write_html(path, content, styles ):
+  with open(path, 'w', encoding='utf-8') as index_file:
+        index_file.write(
+            format_html( 
+                content,
+                styles
+            )
+        )        
+
+def format_html(content, styles):
   config = load_json()
 
   return(
@@ -29,7 +38,7 @@ def format_header(md, styles):
           <p id="title">{config['title']}</p>
           <p id="subtitle">{config['description']}</p>
         </div>
-        { md }
+        { content }
       </section>
       <aside style="display: flex; justify-content: right;">
         <img style="border: 2px solid rgb(233, 234, 240);" src="" alt="">
