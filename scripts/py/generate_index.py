@@ -29,8 +29,13 @@ def generate_post_link(file_path):
       </article>
       """)
 
-def is_folder_empty(folder_path):
-    return not os.listdir(folder_path)
+def is_folder_empty(path):
+    folders = os.path.exists(path)
+
+    if not folders:
+        os.makedirs(path, exist_ok=True)
+
+    return not os.listdir(path)
 
 def get_posts_contents(posts_folder):
     posts_contents = ''
@@ -51,10 +56,12 @@ def get_posts_contents(posts_folder):
 
 def generate_index():
     posts_folder = './posts'
-    posts_contents = get_posts_contents(posts_folder)
 
-    if not posts_contents:
+    if is_folder_empty(posts_folder):
         posts_contents = 'No content posted.'
+
+    else:
+        posts_contents = get_posts_contents(posts_folder)
 
     write_html('./index.html', posts_contents, styles)
 
