@@ -1,39 +1,18 @@
 import os
-import re
 
+from load_md import load_md
+from format_html_page_copy import format_header 
 from generate_index import generate_index
-from format_html_page import format_header
 
 from datetime import datetime
 
+def generate_post_page():
+    md = load_md()
+    styles = {
+        "page": 'posts',
+        "class": 'post'
+    }
 
-styles = {
-    "page": 'posts',
-    "class": 'post'
-}
-
-# def format_content(post):
-#     match_title = re.search(r'<h2>(.*?)<\/h2>', post)
-#     match_content = re.compile(r'<article>(.*?)<\/article>', re.DOTALL).findall(post)
-#     match_author = re.search(r'<h3>(.*?)<\/h3>',  post)
-
-
-#     matches_br = match_content[0].replace('\n', '<br>')
-#     formated_paragraphs = re.sub(r'(<br>\s*){2}', '</p> <p>', matches_br)
-   
-
-#     post_title = match_title.group(1) if match_title else 'No Title'
-#     post_author = match_author.group(1) if match_author else 'No Author'
-
-#     return(
-#     f""" 
-#     <h1>{post_title}</h1>
-#     <p>{formated_paragraphs}</p>
-#     <h6>Criando por<h5>{post_author}</h5></h6>
-# """
-#     )
-
-def generate_post_page(data, md):
     current_date = datetime.now()
     year_folder = current_date.strftime('%Y')
     month_folder = current_date.strftime('%m')
@@ -45,13 +24,14 @@ def generate_post_page(data, md):
     file_path = os.path.join(folder_path, file_name)
 
     with open(file_path, 'w') as html_file:
-        html_file.write(format_header(
-            data['configs'],
-            md,
-            styles
-            ))
-        
+        html_file.write(
+            format_header(
+                md,
+                styles
+            )
+        ) 
     print(f'{file_name} created.')
 
-    generate_index(data)
+    
+generate_post_page()
     

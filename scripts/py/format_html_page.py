@@ -1,3 +1,4 @@
+
 def format_header(config, content, style):
   return(
     f"""<!DOCTYPE html>

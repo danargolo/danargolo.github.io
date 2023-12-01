@@ -30,12 +30,20 @@ jobs:
           timezoneWindows: "America/Sao_Paulo"
 
 
-      - name: Generate Pages
-        id: generate-pages
+      - name: prepare env
         run: |
           pip install --upgrade pip
           pip install markdown2
-          python3 scripts/py/load_json.py
+
+      - name: generate post
+        if: ${{ contains(github.event_path, '.md') }}
+        run: python3 scripts/py/generate_post_page.py
+      
+      - name: generate index
+        run: python3 scripts/py/generate_index.py
+
+      - name: commit and push HTML
+        run: |
           git config --global user.email $EMAIL
           git config --global user.name $USER
           git pull

@@ -1,7 +1,8 @@
 import os
 import re
 
-from format_html_page import format_header
+from format_html_page_copy import format_header
+from time_execution import time_exec
 
 
 posts_folder = './posts'
@@ -33,7 +34,7 @@ def generate_post_link(file_path):
       </article>
       """)
 
-def generate_index(config):
+def generate_index():
     posts_contents = ''
 
     for year in os.listdir(posts_folder):
@@ -49,10 +50,14 @@ def generate_index(config):
                     posts_contents += posts
         
     with open('./index.html', 'w', encoding='utf-8') as index_file:
-        index_file.write(format_header(
-            config['configs'], 
-            posts_contents,
-            styles
-            ))
+        index_file.write(
+            format_header( 
+                posts_contents,
+                styles
+            )
+        )
 
     print('Index created.')
+    time_exec()
+
+generate_index()
